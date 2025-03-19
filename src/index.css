@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    html {
+      font-family: Inter;
+    }
+}
+
+
+body::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Hide scrollbar for IE, Edge */
+  body {
+    -ms-overflow-style: none;
+  }
+  
+  /* Hide scrollbar for Firefox */
+  /* body {
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent;
+  }
+
+  body::-webkit-scrollbar {
+    display: none;
+  } */
+  
+  
+  body {
+    -ms-overflow-style: none;
+
+      font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  
+  
+  }
+
+
+  ::-webkit-scrollbar {
+    width: 0; /* Remove scrollbar width */
+  }
+  
+  /* Optional: Customize scrollbar track appearance */
+  ::-webkit-scrollbar-track {
+    background: transparent; /* Make scrollbar track transparent */
+  }
+  
+  /* Optional: Customize scrollbar thumb appearance */
+  ::-webkit-scrollbar-thumb {
+    background: transparent; /* Make scrollbar thumb transparent */
+  }
