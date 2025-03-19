@@ -9,7 +9,7 @@ export const router = createBrowserRouter([
     
     {
         path : '/',
-        element : <Main></Main>,
+        element :  <Dashboardskeleton></Dashboardskeleton>,
         errorElement : <h2 className="text-center">Unexpected Error :)</h2>,
         children : [
             {
