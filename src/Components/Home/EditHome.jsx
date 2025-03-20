@@ -30,8 +30,8 @@ const EditHome = ({getpageaction}) => {
     const addItem = () => {
       const newItem = {
         imageprevurl:'',
-        imageUrl: "", // Initialize with empty string for image upload
-        linkUrl: ""   // Initialize with empty string for URL link
+        imageUrl: "",
+        linkUrl: ""  
       };
       setItems([...items, newItem]);
     };
@@ -193,24 +193,20 @@ const EditHome = ({getpageaction}) => {
   
   
     const getdata=async()=>{
-      // const responses = await axios.get(`${config.apiUrl}//userdata/${1}`);
-      //   console.log("showin dataa",responses)
-
-
 
       try {
-        const response = await axios.get(`${config.apiUrl}/userdata/${1}`);
+        const response = await axios.get(`${config.apiUrl}/userdata`);
        
         const data = await response.data;
-        console.log("ssdafa",data?.id)
+        console.log("ssdafa",data)
         // Check if data is found
-        if (data.id) {
-            settitlefirst(data.titlefirst);
-            settitlesecond(data.titlesecond);
-            setlinkurlcv(data.linkurlcv);
-            setlogourl(data.logourl)
+        if (data) {
+            settitlefirst(data?.profile.titlefirst);
+            settitlesecond(data?.profile.titlesecond);
+            setlinkurlcv(data?.profile.linkurlcv);
+            setlogourl(data?.profile[0].logourl)
             setlogophoto('')
-            setItems(data.images.map(image => ({
+            setItems(data?.media.map(image => ({
                 imageprevurl: image.image_url,
                 imageUrl:'' ,
                 linkUrl: image.linkurlmedia
