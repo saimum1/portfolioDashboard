@@ -9,6 +9,7 @@ import image2 from '../../assets/static/Image2.png'
 import image3 from '../../assets/static/Image3.png'
 import image4 from '../../assets/static/s.svg'
 import darkpr from '../../assets/static/darkpr.png'
+import pcs from '../../assets/static/pca.gif'
 
 import axios from "axios";
 import { StatusOnlineIcon, SearchIcon } from "@heroicons/react/outline";
@@ -216,7 +217,6 @@ const Hero = () => {
                     </div>
                   </div>
 
-
                   {/* Right Section: Image */}
                   <div style={{
                     flex: 1,
@@ -230,7 +230,7 @@ const Hero = () => {
    
      
                     <img
-                      src={darkpr}
+                      src={pcs}
                       alt="Profile"
                       style={{
                         width: '75%', 
