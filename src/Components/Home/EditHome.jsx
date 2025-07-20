@@ -243,7 +243,7 @@ const EditHome = ({getpageaction}) => {
         // onSubmit={()=>ondecision()}
          className="blog-form">
           <div className="form-group">
-            <label>First title (top-left):</label>
+            <label>Mail:</label>
             <input
               type="text"
               value={titlefirst}
@@ -252,7 +252,7 @@ const EditHome = ({getpageaction}) => {
             />
           </div>
           <div className="form-group">
-          <label>Second title (top-right):</label>
+          <label>WhatsApp Number:</label>
 
             <input
               type="text"
