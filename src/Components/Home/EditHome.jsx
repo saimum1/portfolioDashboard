@@ -352,7 +352,7 @@ const EditHome = ({getpageaction}) => {
                             (item.imageUrl !== '' && item.imageprevurl === '') ? 
                                 item.imageUrl :
                                 (item.imageUrl === '' && item.imageprevurl !== '') ? 
-                                    `${config.apiUrl}/${item.imageprevurl}` :
+                                    `${item.imageprevurl}` :
                                     ''
                         }
                         alt="Featured"
