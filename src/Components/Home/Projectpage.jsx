@@ -62,7 +62,7 @@ const Projectpage = () => {
                                         <div className='boxparent'  style={{ flex: 4, backgroundColor: '', height: '100%', width: '100%' }}>
                                         
                                             <div  className='box' style={{ flex: 4, backgroundColor: '', height: '100%', width: '100%',borderRadius:'5px',border:'1px solid #999999' }}>
-                                                <img className='boximage'  src={`${config.apiUrl}/${value?.image_url}`} style={{ height: '17rem', width: '100%'}} alt="Featured" />
+                                                <img className='boximage'  src={`${value?.image_url}`} style={{ height: '17rem', width: '100%'}} alt="Featured" />
                                             </div>
                                         </div>
 

@@ -264,7 +264,7 @@ const Hero = () => {
                                    <div className='boxparent'  style={{ flex: 4, backgroundColor: '', height: '100%', width: '100%' }}>
                                    
                                         <div  className='box' style={{ flex: 4, backgroundColor: '', height: '100%', width: '100%',borderRadius:'5px',border:'1px solid #999999' }}>
-                                            <img className='boximage'  src={`${config.apiUrl}/${value?.image_url}`} style={{ height: '17rem', width: '100%'}} alt="Featured" />
+                                            <img className='boximage'  src={`${value?.image_url}`} style={{ height: '17rem', width: '100%'}} alt="Featured" />
                                         </div>
                                     </div>
 
@@ -300,7 +300,7 @@ const Hero = () => {
                               <div className='boxparent'  style={{ flex: 4, backgroundColor: '', height: '100%', width: '100%' }}>
                                    
                                    <div  className='box' style={{ flex: 4, backgroundColor: '', height: '100%', width: '100%',borderRadius:'5px',border:'1px solid #999999' }}>
-                                       <img className='boximage'  src={`${config.apiUrl}/${value?.image_url}`} style={{ height: '12rem', width: '100%'}} alt="Featured" />
+                                       <img className='boximage'  src={`${value?.image_url}`} style={{ height: '12rem', width: '100%'}} alt="Featured" />
                                    </div>
                                </div>
                                     <span style={{ flex: 1, height: '100%', display: 'flex', width: '100%',color:global_css.third_txt_color,fontSize:'1.6rem', fontWeight: '600',fontFamily:'ui-sans-serif,system-ui,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji' }}>{value?.title}</span>

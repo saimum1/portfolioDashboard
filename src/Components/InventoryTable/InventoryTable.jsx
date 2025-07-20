@@ -268,7 +268,7 @@ const InventoryTable = ({getpageaction,caseid}) => {
                                     <span className="ml-5">{index + 1}</span>
                                 </TableCell>
                                 <TableCell style={{display:'flex',justifyContent:'flex-start',alignItems:'center'}}>
-                                    <Text className="flex gap-3"><img style={{height : '74px', width : '7rem'}} src={`${config.apiUrl}/${item?.image_url}`} alt=""/>  </Text>
+                                    <Text className="flex gap-3"><img style={{height : '74px', width : '7rem'}} src={`${item?.image_url}`} alt=""/>  </Text>
                                 </TableCell>
                                 <TableCell>
                                     <Text>{item?.title}</Text>

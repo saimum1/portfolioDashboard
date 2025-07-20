@@ -322,7 +322,7 @@ await onAlertClose()
         (featuredPhoto !== '' && photourl === '') ? 
             featuredPhoto :
             (featuredPhoto === '' && photourl !== '') ? 
-                `${config.apiUrl}/${photourl}` :
+                `${photourl}` :
                 ''
     }
     alt="Featured"

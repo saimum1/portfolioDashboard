@@ -20,7 +20,7 @@ const EditHome = ({getpageaction}) => {
   
     const [titlefirst, settitlefirst] = useState('');
     const [titlesecond, settitlesecond] = useState('');
-    const [linkurlcv,setlinkurlcv]=useState('')
+    const [linkurlcv,setlinkurlcv]=useState(null)
     const [status,setstatus]=useState(false)
   
     const [items, setItems] = useState([]);
@@ -201,10 +201,10 @@ const EditHome = ({getpageaction}) => {
         console.log("ssdafa",data)
         // Check if data is found
         if (data) {
-            settitlefirst(data?.profile.titlefirst);
-            settitlesecond(data?.profile.titlesecond);
-            setlinkurlcv(data?.profile.linkurlcv);
-            setlogourl(data?.profile[0].logourl)
+            settitlefirst(data?.profile[0]?.titlefirst);
+            settitlesecond(data?.profile[0]?.titlesecond);
+            setlinkurlcv(data?.profile[0]?.linkurlcv);
+            setlogourl(data?.profile[0]?.logourl)
             setlogophoto('')
             setItems(data?.media.map(image => ({
                 imageprevurl: image.image_url,
@@ -295,7 +295,7 @@ const EditHome = ({getpageaction}) => {
                             (logophoto !== '' && logourl === '') ? 
                                logophoto :
                                 (logophoto === '' && logourl !== '') ? 
-                                    `${config.apiUrl}/${logourl}` :
+                                    `${logourl}` :
                                     ''
                         }
                         alt="image"

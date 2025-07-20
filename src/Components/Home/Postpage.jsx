@@ -46,7 +46,9 @@ const Postpage = () => {
                       <span style={{display:'flex',justifyContent:'flex-start',alignItems:'center',textAlign:'left',fontSize:'1.4rem',fontWeight:'300',color:'#000'}}>{post?.description}</span>
                     </div>
                     <div style={{flex:1,display:'flex',justifyContent:'flex-start',alignItems:'flex-start',flexDirection:'column',height:'100%',width:'100%'}}>
-                       <img src={ `${config.apiUrl}/${post?.image_url}`} style={{width:'100%' ,height:'100%' ,objectFit:'cover',border:'1px',borderRadius:'3px'}}/>
+                       {/* <img src={ `${config.apiUrl}/${post?.image_url}`}  */}
+                       <img src={ `${post?.image_url}`}
+                        style={{width:'100%' ,height:'100%' ,objectFit:'cover',border:'1px',borderRadius:'3px'}}/>
 
                     </div>
                  
