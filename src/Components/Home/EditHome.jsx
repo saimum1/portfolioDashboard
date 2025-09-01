@@ -61,7 +61,7 @@ const EditHome = ({getpageaction}) => {
 
 
 
-    const UpdateBulk = async () => {
+    const UpdateBulk =  () => {
       console.log("shoinwh")
       handleSubmit()
     }
@@ -86,111 +86,182 @@ const EditHome = ({getpageaction}) => {
      
     }
   
-    const handleSubmit =async() => {
-      console.log("called")
+  //   const handleSubmit =async() => {
+  //     console.log("called")
    
      
 
-      // console.log("safcc",updatedItems)
+  //     // console.log("safcc",updatedItems)
   
-      try {
+  //     try {
 
 
-        const updatedItems = [...items];
+  //       const updatedItems = [...items];
 
-        for(let  i=0; i<updatedItems.length;i++){
-          if(updatedItems[i]['imageUrl'] !==''){
-            let formData = new FormData()
-            formData.append("featuredPhoto", updatedItems[i]['imageUrl']);
-            const response = await axios.post(`${config.apiUrl}/upload`,formData);
+  //       for(let  i=0; i<updatedItems.length;i++){
+  //         if(updatedItems[i]['imageUrl'] !==''){
+  //           let formData = new FormData()
+  //           formData.append("featuredPhoto", updatedItems[i]['imageUrl']);
+  //           const response = await axios.post(`${config.apiUrl}/upload`,formData);
   
-            updatedItems[i]['imageprevurl'] = await response?.data?.image_url ;
-            // await responsess?.data?.image_url
+  //           updatedItems[i]['imageprevurl'] = await response?.data?.image_url ;
+  //           // await responsess?.data?.image_url
   
-        console.log("safcc",updatedItems[i])
+  //       console.log("safcc",updatedItems[i])
   
            
-          }
-        }
+  //         }
+  //       }
         
-        let logourlsave =logourl
+  //       let logourlsave =logourl
        
 
-         console.log("first")
+  //        console.log("first")
 
-        let newPost = {
+  //       let newPost = {
           
-          titlefirst,
-          titlesecond,
-          linkurlcv,
-          logourl:logourl,
-          featuredPhoto: updatedItems
-        };
+  //         titlefirst,
+  //         titlesecond,
+  //         linkurlcv,
+  //         logourl:logourl,
+  //         featuredPhoto: updatedItems
+  //       };
 
 
-        if(logophoto !== ''){
+  //       if(logophoto !== ''){
 
         
-          let formData2 = new FormData()
-              formData2.append("featuredPhoto", logophoto);
-              const response2 = await axios.post(`${config.apiUrl}/upload`,formData2);
-              newPost.logourl=await response2?.data?.image_url
-              console.log("asdafsfaf",await response2?.data?.image_url)
+  //         let formData2 = new FormData()
+  //             formData2.append("featuredPhoto", logophoto);
+  //             const response2 = await axios.post(`${config.apiUrl}/upload`,formData2);
+  //             newPost.logourl=await response2?.data?.image_url
+  //             console.log("asdafsfaf",await response2?.data?.image_url)
               
-           }
+  //          }
 
 
+  //       console.log('Response:', newPost);
   
-        const responses = await axios.post(`${config.apiUrl}/posthomedata`, newPost);
-        console.log('Response:', newPost);
-            if(responses.data.status === 200){
-              setshowpopupmsg('saved Success')
-              setshowpopupstatus('success')
-              setshowpopup(true)
-              setTimeout(async() => {
-                  setshowpopup(false)
-                  let d={'id':'','case':5}
-                  await getpageaction(d)
-              }, 1500);
-            }else if(responses.data.status === 500){
-                    setshowpopupmsg('could not save')
-              setshowpopupstatus('failed')
-              setshowpopup(true)
-              setTimeout(() => {
-                  setshowpopup(false)
+  //       const responses =  axios.post(`${config.apiUrl}/posthomedataxxx`, newPost);  
+  //           if(responses.data.status === 200){
+  //             setshowpopupmsg('saved Success')
+  //             setshowpopupstatus('success')
+  //             setshowpopup(true)
+  //             setTimeout(async() => {
+  //                 setshowpopup(false)
+  //                 let d={'id':'','case':5}
+  //                 await getpageaction(d)
+  //             }, 1500);
+  //           }else if(responses.data.status === 500){
+  //                   setshowpopupmsg('could not save')
+  //             setshowpopupstatus('failed')
+  //             setshowpopup(true)
+  //             setTimeout(() => {
+  //                 setshowpopup(false)
             
-              }, 1500);
+  //             }, 1500);
             
-            }else{
-              setshowpopupmsg('no response from server')
-              setshowpopupstatus('failed')
-              setshowpopup(true)
-              setTimeout(() => {
-                  setshowpopup(false)
+  //           }else{
+  //             setshowpopupmsg('no response from server')
+  //             setshowpopupstatus('failed')
+  //             setshowpopup(true)
+  //             setTimeout(() => {
+  //                 setshowpopup(false)
             
-              }, 1500);
+  //             }, 1500);
             
-            }
-  await onAlertClose()
+  //           }
+  // await onAlertClose()
   
-    } catch (error) {
-        console.error('Error++++:', error);
+  //   } catch (error) {
+  //       console.error('Error++++:', error);
   
   
-        setshowpopupmsg('no response from server')
-        setshowpopupstatus('failed')
-        setshowpopup(true)
-        setTimeout(() => {
-            setshowpopup(false)
+  //       setshowpopupmsg('no response from server')
+  //       setshowpopupstatus('failed')
+  //       setshowpopup(true)
+  //       setTimeout(() => {
+  //           setshowpopup(false)
     
-        }, 1500);
+  //       }, 1500);
     
     
-        await onAlertClose()
-            throw error;
-        }
+  //       await onAlertClose()
+  //           throw error;
+  //       }
+  //   };
+  const handleSubmit = async () => {
+  console.log("called");
+  try {
+    const updatedItems = [...items];
+
+    // Upload images
+    for (let i = 0; i < updatedItems.length; i++) {
+      if (updatedItems[i]['imageUrl'] !== '') {
+        let formData = new FormData();
+        formData.append("featuredPhoto", updatedItems[i]['imageUrl']);
+        const response = await axios.post(`${config.apiUrl}/upload`, formData);
+        updatedItems[i]['imageprevurl'] = response?.data?.image_url;
+        console.log("Uploaded item:", updatedItems[i]);
+      }
+    }
+
+    let newPost = {
+      titlefirst,
+      titlesecond,
+      linkurlcv,
+      logourl,
+      featuredPhoto: updatedItems
     };
-  
+
+    // Upload logo if provided
+    if (logophoto !== '') {
+      let formData2 = new FormData();
+      formData2.append("featuredPhoto", logophoto);
+      const response2 = await axios.post(`${config.apiUrl}/upload`, formData2);
+      newPost.logourl = response2?.data?.image_url;
+      console.log("Logo uploaded:", response2?.data?.image_url);
+    }
+
+    console.log('Sending to backend:', newPost);
+
+    // ✅ Await the API call + correct route
+    const responses = await axios.post(`${config.apiUrl}/posthomedata`, newPost);
+
+    if (responses.data.status === 200) {
+      setshowpopupmsg('saved Success');
+      setshowpopupstatus('success');
+      setshowpopup(true);
+      setTimeout(async () => {
+        setshowpopup(false);
+        let d = { id: '', case: 5 };
+        await getpageaction(d);
+      }, 1500);
+    } else if (responses.data.status === 500) {
+      setshowpopupmsg('could not save');
+      setshowpopupstatus('failed');
+      setshowpopup(true);
+      setTimeout(() => setshowpopup(false), 1500);
+    } else {
+      setshowpopupmsg('no response from server');
+      setshowpopupstatus('failed');
+      setshowpopup(true);
+      setTimeout(() => setshowpopup(false), 1500);
+    }
+
+    await onAlertClose();
+
+  } catch (error) {
+    console.error('Error++++:', error);
+    setshowpopupmsg('no response from server');
+    setshowpopupstatus('failed');
+    setshowpopup(true);
+    setTimeout(() => setshowpopup(false), 1500);
+    await onAlertClose();
+    throw error;
+  }
+};
+
   
     const getdata=async()=>{
 

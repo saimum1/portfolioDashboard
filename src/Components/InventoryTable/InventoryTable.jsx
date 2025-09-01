@@ -356,3 +356,5 @@ const InventoryTable = ({getpageaction,caseid}) => {
 };
 
 export default InventoryTable;
+
+

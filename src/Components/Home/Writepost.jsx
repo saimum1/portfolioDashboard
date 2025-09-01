@@ -19,6 +19,8 @@ const Writepost = ({updateitem,status,getpageaction}) => {
   const [showpopoupmsg,setshowpopupmsg]=useState('')
 
   const [title, setTitle] = useState('');
+  const [livelink, setlivelink] = useState('');
+  const [gitlink, setgitlink] = useState('');
   const [description, setDescription] = useState('');
   const [content, setContent] = useState('');
   const [featuredPhoto, setFeaturedPhoto] = useState(null);
@@ -39,6 +41,16 @@ const Writepost = ({updateitem,status,getpageaction}) => {
 
   const handleDescriptionChange = (event) => {
     setDescription(event.target.value);
+  };
+
+
+
+   const handlelivelink = (event) => {
+    setlivelink(event.target.value);
+  };
+
+   const handlegitlink = (event) => {
+    setgitlink(event.target.value);
   };
 
   const handleContentChange = (value) => {
@@ -99,7 +111,9 @@ const Writepost = ({updateitem,status,getpageaction}) => {
         featuredPhoto: await responsess?.data?.image_url, // Assuming the server returns some identifier for the uploaded photo
         created: new Date(),
         category: 'post',
-        selected
+        selected,
+        livelink,
+        gitlink
       };
 
       const responses = await axios.post(`${config.apiUrl}/getdata`, newPost);
@@ -166,7 +180,9 @@ await onAlertClose()
               featuredPhoto: photourl, 
               created: new Date(),
               category: 'post',
-              selected
+              selected,
+              livelink,
+              gitlink
             };
 
             const responses = await axios.post(`${config.apiUrl}/update_item`, newPost);
@@ -221,7 +237,9 @@ await onAlertClose()
               featuredPhoto: await responses2?.data?.image_url, // Assuming the server returns some identifier for the uploaded photo
               created: new Date(),
               category: 'post',
-              selected
+              selected,
+              livelink,
+              gitlink
             };
 
             const responses = await axios.post(`${config.apiUrl}/update_item`, newPost);
@@ -293,6 +311,8 @@ await onAlertClose()
       setselected(updateitem?.selected)
       setid(updateitem?.postid)
       setColor(updateitem?.color !== null ? updateitem?.color:'#E6F2FA')
+      setgitlink(updateitem?.gitlink)
+      setlivelink(updateitem?.livelink)
       
     }else if (status === false){
       setTitle('')
@@ -302,6 +322,8 @@ await onAlertClose()
       setselected(false)
       setid('')
       setColor('#E6F2FA')
+      setgitlink('')
+      setlivelink('')
 
     }
   }, [])
@@ -363,6 +385,30 @@ await onAlertClose()
             type="text"
             value={description}
             onChange={handleDescriptionChange}
+            className="form-control"
+          />
+        </div>
+
+
+
+        <div className="form-group">
+          <label>live link:</label>
+          <input
+            type="text"
+            value={livelink}
+            onChange={handlelivelink}
+            className="form-control"
+          />
+        </div>
+
+
+
+        <div className="form-group">
+          <label>git code:</label>
+          <input
+            type="text"
+            value={gitlink}
+            onChange={handlegitlink}
             className="form-control"
           />
         </div>
